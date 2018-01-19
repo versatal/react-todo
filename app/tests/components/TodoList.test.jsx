@@ -14,7 +14,7 @@ describe('TodoList', () => {
     expect(TodoList).toExist();
   });
 
-  it('should render on Todo component for each todo item', () => {
+  it('should render one Todo component for each todo item', () => {
     var todos = [
       {
         id: 1,
@@ -46,6 +46,22 @@ describe('TodoList', () => {
 
   it('should render empty message if no todos', () => {
     var todos = [];
+    var todoList = TestUtils.renderIntoDocument(<TodoList todos={todos}/>);
+    var $el = $(ReactDOM.findDOMNode(todoList));
+
+    expect($el.find('.container__message').length).toBe(1);
+  });
+
+  it('should render empty message if all todos completed', () => {
+    var todos = [
+      {
+        id: 2,
+        text: 'Do something else',
+        completed: true,
+        completedAt: 1234,
+        createdAt: 500
+      }
+    ];
     var todoList = TestUtils.renderIntoDocument(<TodoList todos={todos}/>);
     var $el = $(ReactDOM.findDOMNode(todoList));
 
