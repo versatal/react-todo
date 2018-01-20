@@ -17,6 +17,8 @@ $(document).foundation();
 // App css
 require('style!css!sass!applicationStyles');
 
+
+console.log(process.env.NODE_ENV);
 ReactDOM.render(
   <Provider store={store}>
     <TodoApp/>
