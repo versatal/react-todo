@@ -7,7 +7,7 @@ export var Login = React.createClass({
   onLogin() {
     var {dispatch} = this.props;
 
-    dispatch(actions.startogin());
+    dispatch(actions.startLogin());
   },
   render: function () {
     return (
