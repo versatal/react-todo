@@ -144,4 +144,24 @@ describe('Actions', () => {
       }, done)
     });
   });
+  describe('Login Actions', () => {
+    it('should set uid generate login action', () => {
+      var uid = 12345;
+      var action = {
+        type: 'LOGIN',
+        uid
+      };
+      var res = actions.login(12345);
+
+      expect(res).toEqual(action);
+    });
+    it('should generate logout action', () => {
+      var action = {
+        type: 'LOGOUT'
+      };
+      var res = actions.logout();
+
+      expect(res).toEqual(action);
+    });
+  });
 });
